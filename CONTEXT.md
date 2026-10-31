@@ -1,25 +1,21 @@
 # Context
 
-## Decision
+## Weekly prediction
 
-A choice recorded before its result. Its title, question, prediction, confidence, metric, original success criteria, metric rule, and review date do not change.
+A weekly prediction is written for an upcoming Monday-to-Sunday period. The app records the user's prediction, check method, confidence, and success rule before the period begins. Saving makes those original values immutable. The app asks the user to confirm they wrote the prediction without AI assistance, but cannot verify the claim.
 
-## Evidence
+## Weekly review
 
-A dated note attached after a decision is recorded. Evidence entries remain in the event history.
+After Sunday, the user appends observed evidence, chooses Right, Missed, or Not clear yet, and records a lesson for next week. Reviews are append-only. Unresolved and unclear weeks are not failures.
 
-## Criteria version
+## Weekly scores
 
-Version 1 is the original success rule. A later rule is appended with a higher version. Later versions cannot change version 1 or its calibration result.
+Weekly scores use only resolved weekly predictions. They exclude synthetic examples and legacy non-weekly rows. The summary reports resolved count, average confidence, actual right rate, and confidence-minus-right-rate gap in percentage points. Positive means confidence was higher than the right rate. Small samples warrant caution.
 
-## Outcome
+## Earlier Decision Notebook records
 
-A dated review tied to the criteria version in effect at the time. Numeric outcomes compare an observed number with the original threshold. Manual outcomes need evidence and a note. Inconclusive outcomes are excluded from calibration.
-
-## Calibration
-
-Counts the latest resolved binary outcome tied to criteria version 1 for each decision. Shows eligible sample size. Amended criteria and inconclusive results do not count.
+Older decision rows remain readable with their original IDs, immutable prediction fields, evidence, criteria versions, outcomes, and calibration history. They do not contribute to weekly scores. Existing runtime path and bundle identifier remain stable for data continuity.
 
 ## Local store
 
-SQLite holds original decision records and append-only event rows outside the app folder. IDs are strings. JSON export is user initiated.
+SQLite stores records and append-only events outside the app folder at the existing `~/.local/share/decision-notebook/` path. IDs are strings. JSON export is user initiated. No account, LLM, or external service is used.
