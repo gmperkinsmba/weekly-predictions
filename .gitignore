@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.sqlite
+*.sqlite3
+*.db
+*.jsonl
+.env
+.env.*
+secrets/
+uploads/
+exports/
+build/
+dist/
+graphify-out/
+.DS_Store
