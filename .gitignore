@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+.desktop-venv/
 venv/
 *.sqlite
 *.sqlite3
@@ -13,5 +14,6 @@ uploads/
 exports/
 build/
 dist/
+*.spec
 graphify-out/
 .DS_Store

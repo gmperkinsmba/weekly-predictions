@@ -1,0 +1,3 @@
+Weekly Predictions desktop bundle
+io.github.gmperkinsmba.decisionnotebook
+decision-notebook-local-build-owner-v1
